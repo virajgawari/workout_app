@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #f8fafc;
+  background: #07111f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Space Grotesk", sans-serif;
+  background: #07111f;
+  color: #f8fafc;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.glass {
+  @apply border border-white/10 bg-white/5 backdrop-blur-xl;
+}
+
+.card {
+  @apply glass rounded-3xl shadow-neon;
+}
+
+.metric-ring {
+  background:
+    radial-gradient(circle at center, rgba(7, 17, 31, 0.95) 54%, transparent 55%),
+    conic-gradient(#5ef2b6 var(--progress), rgba(255, 255, 255, 0.08) 0);
+}
+
+.stagger-in {
+  animation: fade-up 0.45s ease-out both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
