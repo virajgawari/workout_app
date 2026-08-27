@@ -1,5 +1,5 @@
 import { FormEvent, useEffect, useState } from "react";
-import { Link, Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import axios from "axios";
 
 import {
@@ -18,6 +18,7 @@ import {
   register
 } from "./api";
 import { setAuthToken } from "./api/client";
+import { BottomNav } from "./components/layout/BottomNav";
 import { Sidebar } from "./components/layout/Sidebar";
 import { Topbar } from "./components/layout/Topbar";
 import { AchievementsPage } from "./pages/AchievementsPage";
@@ -43,13 +44,6 @@ import type {
 } from "./types";
 
 const todayMonth = new Date().toISOString().slice(0, 7);
-const mobileNavItems = [
-  ["/", "Dashboard"],
-  ["/workout", "Workout"],
-  ["/routines", "Routines"],
-  ["/calendar", "Calendar"],
-  ["/progress", "Progress"]
-] as const;
 
 function AuthScreen({ onAuth }: { onAuth: (data: AuthResponse) => void }) {
   const [mode, setMode] = useState<"login" | "register">("login");
@@ -290,18 +284,11 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-mesh p-4 text-white lg:p-6">
+    <div className="min-h-screen bg-mesh p-3 sm:p-4 text-white lg:p-6 pb-safe">
       <div className="mx-auto flex max-w-[1600px] gap-6">
         <Sidebar />
         <main className="min-w-0 flex-1">
           <Topbar name={auth.user.name} stats={dashboard.stats} onLogout={logout} refresh={refreshAll} />
-          <div className="mb-6 flex gap-2 overflow-x-auto lg:hidden">
-            {mobileNavItems.map(([to, label]) => (
-              <Link key={to} to={to} className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">
-                {label}
-              </Link>
-            ))}
-          </div>
           <Routes>
             <Route path="/" element={<DashboardPage data={dashboard} refresh={refreshAll} />} />
             <Route path="/workout" element={<WorkoutPage todayWorkout={todayWorkout} refresh={refreshAll} />} />
@@ -316,6 +303,7 @@ export default function App() {
           </Routes>
         </main>
       </div>
+      <BottomNav />
     </div>
   );
 }

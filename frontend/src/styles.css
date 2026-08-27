@@ -5,22 +5,56 @@
 :root {
   color: #f8fafc;
   background: #07111f;
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+  --sar: env(safe-area-inset-right, 0px);
 }
 
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+  min-height: -webkit-fill-available;
   font-family: "Space Grotesk", sans-serif;
   background: #07111f;
   color: #f8fafc;
+  overscroll-behavior-y: none;
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Prevent auto-zoom on iOS Safari when focusing inputs */
+@media screen and (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Smooth momentum scrolling for iOS */
+.overflow-y-auto, .overflow-x-auto, nav, main {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Safe area padding utilities */
+.pb-safe {
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 16px));
+}
+
+.pb-safe-nav {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0.75rem));
 }
 
 #root {
   min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
 
 .glass {
