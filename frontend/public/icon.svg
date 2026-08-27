@@ -1,0 +1,22 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="128" fill="#07111f"/>
+  <defs>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5ef2b6" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#f43f5e" />
+    </linearGradient>
+  </defs>
+  <!-- Outer glowing ring -->
+  <circle cx="256" cy="256" r="180" fill="none" stroke="url(#glowGrad)" stroke-width="16" opacity="0.4"/>
+  <!-- Workout Dumbbell / Quest Emblem -->
+  <g transform="translate(256, 256) rotate(-45) translate(-256, -256)" stroke="url(#glowGrad)" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <line x1="140" y1="256" x2="372" y2="256" stroke-width="28" stroke="#5ef2b6" />
+    <!-- Left weights -->
+    <rect x="150" y="180" width="30" height="152" rx="12" fill="#5ef2b6" />
+    <rect x="110" y="206" width="24" height="100" rx="8" fill="#38bdf8" />
+    <!-- Right weights -->
+    <rect x="332" y="180" width="30" height="152" rx="12" fill="#5ef2b6" />
+    <rect x="378" y="206" width="24" height="100" rx="8" fill="#38bdf8" />
+  </g>
+</svg>

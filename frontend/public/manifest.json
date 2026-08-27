@@ -1,0 +1,16 @@
+﻿{
+  "short_name": "WorkoutQuest",
+  "name": "Workout Quest",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#07111f",
+  "theme_color": "#07111f",
+  "display": "standalone",
+  "orientation": "portrait"
+}
